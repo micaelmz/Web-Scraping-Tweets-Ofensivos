@@ -8,17 +8,6 @@ MAX_TWEETS = 100
 ts = TweetScraper()
 dm = DataManager()
 
-# if __name__ == '__main__':
-#     term = dm.pick_a_term() # obsoleto
-#     tweets_found = ts.scrape_tweets(dm.swear_list)
-#     ts.put_into_dataframe()
-#     data_csv = ts.tweets_df.to_csv(index=False)
-#     dm.upload_to_google_sheet(csv=data_csv)
-#     dm.send_email(info=term) # obsoleto
-#     print(f"O data sheet foi atualizado com novos {tweets_found} tweets sobre a palavra {term['word'].upper()} da categoria {term['category'].upper()}")
-
-#dm.clear_csv()
-
 if __name__ == '__main__':
     dataset = dm.swear_list
     terms = {category: [word for word in dataset[category] if pd.notnull(word)] for category in dataset.columns.tolist()}
